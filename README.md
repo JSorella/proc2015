@@ -1,17 +1,15 @@
 # TP Compresión de Imágenes
-## Procesamiento de Señales
-### Primer cuatrimestre 2015
-#### UTN FRBA
+#### Procesamiento de Señales - 1c 2015 - UTN FRBA
 ---------------------
 
 ## Uso del SW
 
-Para instalar el entorno de desarrollo, seguir los siguientes pasos:
+Para usar el SW, seguir los siguientes pasos:
 
 1. Instalar python
 2. Ejecutar cualquier módulo bajo la directiva
 
-```
+```python
 python algun_modulo.py
 ```
 
@@ -20,24 +18,24 @@ python algun_modulo.py
 
 Para instalar el entorno de desarrollo, seguir los siguientes pasos:
 
-1. Instalar python
+1) Instalar python
 
-2. Instalar PIP (manejador de dependencias) corriendo el siguiente comando 
+2) Instalar PIP (manejador de dependencias) corriendo el siguiente comando:
 
-```
+```python
 easy_install pip
 
 #puede requerir anteponer "sudo"
 ```
 ... en caso de error, entrar a la página oficial de PIP y seguir instrucciones.
 
-3. Instalar virtualenv (para crear entornos virtuales)
-```
+3) Instalar virtualenv (para crear entornos virtuales)
+```python
 pip install virtualenv
 
 #puede requerir anteponer "sudo"
 ```
-4. Desarrollar :p
+4) Desarrollar :p
 
 ---------------------
 
