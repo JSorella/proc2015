@@ -9,7 +9,7 @@ Para usar el SW, seguir los siguientes pasos:
 1. Instalar python
 2. Ejecutar cualquier módulo bajo la directiva
 
-```python
+```bash
 python algun_modulo.py
 ```
 
@@ -22,7 +22,7 @@ Para instalar el entorno de desarrollo, seguir los siguientes pasos:
 
 2) Instalar PIP (manejador de dependencias) corriendo el siguiente comando:
 
-```python
+```bash
 easy_install pip
 
 #puede requerir anteponer "sudo"
@@ -30,7 +30,7 @@ easy_install pip
 ... en caso de error, entrar a la página oficial de PIP y seguir instrucciones.
 
 3) Instalar virtualenv (para crear entornos virtuales)
-```python
+```bash
 pip install virtualenv
 
 #puede requerir anteponer "sudo"
