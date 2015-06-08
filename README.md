@@ -26,14 +26,16 @@ Se necesitan los siguientes pre-requisitos para correr el aplicativo:
 Dentro de la carpeta "src", ejecutar bajo la directiva:
 
 >```bash
-python main.py
+python main.py -i <nombreArchivoAProcesar>
 ```
+... Si no se adjunta ningún argumento, por defecto procesa la imágen media/lena.png
 
 ---------------------
 
 ## To do:
-- [ ] Pasar por parámetro ruta a la imágen a cargar
+- [ ] Verificar que es eso de que las imágenes que se cargan tienen que tener "valor par"
 - [ ] Crear tests
+- [x] Pasar por parámetro ruta a la imágen a cargar
 - [x] Averiguar porque la imágen gira 90 grados
 - [x] Mostrar la diferencia de error entre original y algoritmos
 - [x] Desarrollar el algoritmo por transformada discreta del coseno (DCT)

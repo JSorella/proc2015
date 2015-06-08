@@ -2,17 +2,32 @@
 """
 Programa Principal
 """
-
 import numpy as np
 import helper as f
 import haar
 import dcst
 import matplotlib.pyplot as plt
+import sys, getopt
 
+def main(argv):
+  # Archivo por defecto (si no hay argumentos)
+  fileName = '../media/lena.png'
 
-def main():
+  # Verificamos que se esta pasando un nombre de archivo por argumento
+  try:
+    opts, args = getopt.getopt(argv,"hi:o:",["ifile="])
+  except getopt.GetoptError:
+    print 'main.py -i <inputfile>'
+    sys.exit(2)
+  for opt, arg in opts:
+    if opt == '-h':
+      print 'test.py -i <inputfile>'
+      sys.exit()
+    elif opt in ("-i", "--ifile"):
+      fileName = arg
+
   # Cargamos la imagen a procesar
-  img = f.to_float(f.load('../media/lena.png'))
+  img = f.to_float(f.load(fileName))
 
   # Calculamos los coeficientes segun algortimo
   fftCoeffs = np.fft.fft2(img)
@@ -73,4 +88,4 @@ def main():
   plt.show()
 
 if __name__ == '__main__':
-  main()
+  main(sys.argv[1:])
