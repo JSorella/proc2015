@@ -2,40 +2,27 @@
 #### Procesamiento de Señales - 1c 2015 - UTN FRBA
 ---------------------
 
-## Uso del SW
+## Instalación
 
-Para usar el SW, seguir los siguientes pasos:
+Se necesitan los siguientes pre-requisitos para correr el aplicativo:
 
-1. Instalar python
-2. Ejecutar cualquier módulo bajo la directiva
+1) Instalar python
+
+2) Instalar las siguientes dependencias:
+>>**Scipy:**
+>>sudo apt-get install python-scipy
+
+>>**Matplotlib:**
+>>sudo apt-get install python-matplotlib
+
+>>**Tkinter:**
+>>sudo apt-get install python-tk
+
+3) Ejecutar cualquier módulo bajo la directiva
 
 ```bash
 python algun_modulo.py
 ```
-
----------------------
-## Desarrollo
-
-Para instalar el entorno de desarrollo, seguir los siguientes pasos:
-
-1) Instalar python
-
-2) Instalar PIP (manejador de dependencias) corriendo el siguiente comando:
-
-```bash
-easy_install pip
-
-#puede requerir anteponer "sudo"
-```
-... en caso de error, entrar a la página oficial de PIP y seguir instrucciones.
-
-3) Instalar virtualenv (para crear entornos virtuales)
-```bash
-pip install virtualenv
-
-#puede requerir anteponer "sudo"
-```
-4) Desarrollar :p
 
 ---------------------
 

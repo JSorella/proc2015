@@ -1,8 +1,8 @@
 import funcion as f
 import matplotlib.pyplot as plt
 
-a=f.abrirImagen("lena.png")
-b=f.abrirImagen("lenaTest1.jpg")
+a = f.abrirImagen("../media/lena.png")
+b = f.abrirImagen("../media/lenaTest1.jpg")
 
 
 ar1 = f.generarMatriz(a)
