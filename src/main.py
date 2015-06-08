@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 """
-Programa principal
+Programa Principal
 """
 
 import numpy as np
@@ -11,7 +11,7 @@ import matplotlib.pyplot as plt
 
 
 def main():
-  # Cargamos las imagenes
+  # Cargamos la imagen a procesar
   img = f.to_float(f.load('../media/lena.png'))
 
   # Calculamos los coeficientes segun algortimo
@@ -47,28 +47,28 @@ def main():
   errorDctMatrix = f.errorCuadraticoPuntoAPunto(dctMatrix,originalMatrix)
 
   # Guardamos las imagenes comprimidas
-  f.save('../media/fft.png', f.from_float(lossyFft))
-  f.save('../media/haar.png', f.from_float(lossyHaar))
-  f.save('../media/dct.png', f.from_float(lossyDct))
+  f.save('../media/compressed-fft.png', f.from_float(lossyFft))
+  f.save('../media/compressed-haar.png', f.from_float(lossyHaar))
+  f.save('../media/compressed-dct.png', f.from_float(lossyDct))
   # Guardamos las imagenes con los coeficientes  
-  f.save('../media/fft-coeff.png', f.bipolar(fftCoeffs))
-  f.save('../media/fft-coeff-recortado.png', f.bipolar(strongFftCoeffs))
-  f.save('../media/haar-coeff.png', f.bipolar(haarCoeffs))
-  f.save('../media/haar-coeff-recortado.png', f.bipolar(strongHaarCoeffs))
-  f.save('../media/dct-coeff.png', f.bipolar(dctCoeffs))
-  f.save('../media/dct-coeff-recortado.png', f.bipolar(strongDctCoeffs))
+  f.save('../media/coeff-fft.png', f.bipolar(fftCoeffs))
+  f.save('../media/coeff-fft-recortado.png', f.bipolar(strongFftCoeffs))
+  f.save('../media/coeff-haar.png', f.bipolar(haarCoeffs))
+  f.save('../media/coeff-haar-recortado.png', f.bipolar(strongHaarCoeffs))
+  f.save('../media/coeff-dct.png', f.bipolar(dctCoeffs))
+  f.save('../media/coeff-dct-recortado.png', f.bipolar(strongDctCoeffs))
   # Guardamos las imagenes que muestran la diferencia de error entre algoritmo y original
-  f.save('../media/fft-error.png', f.bipolar(errorFftMatrix))
-  f.save('../media/haar-error.png', f.bipolar(errorHaarMatrix))
-  f.save('../media/dct-error.png', f.bipolar(errorDctMatrix))
+  f.save('../media/error-fft.png', f.bipolar(errorFftMatrix))
+  f.save('../media/error-haar.png', f.bipolar(errorHaarMatrix))
+  f.save('../media/error-dct.png', f.bipolar(errorDctMatrix))
 
   # Ploteamos las imagenes resultantes en pantalla, junto a sus histogramas
   f.mostrarMatrizComoImagen(f.errorCuadraticoPuntoAPunto(f.to_float(fftMatrix), originalMatrix), 1)
-  f.mostrarMatrizComoImagen(f.errorCuadraticoPuntoAPunto(haarMatrix, originalMatrix), 2)
-  f.mostrarMatrizComoImagen(f.errorCuadraticoPuntoAPunto(dctMatrix, originalMatrix), 3)
-  f.espectroMatriz(f.errorCuadraticoPuntoAPunto(fftMatrix, originalMatrix), 4)
-  f.espectroMatriz(f.errorCuadraticoPuntoAPunto(haarMatrix, originalMatrix), 5)
-  f.espectroMatriz(f.errorCuadraticoPuntoAPunto(dctMatrix, originalMatrix), 6)
+  f.mostrarMatrizComoImagen(errorHaarMatrix, 2)
+  f.mostrarMatrizComoImagen(errorDctMatrix, 3)
+  f.espectroMatriz(errorFftMatrix, 4)
+  f.espectroMatriz(errorHaarMatrix, 5)
+  f.espectroMatriz(errorDctMatrix, 6)
 
   plt.show()
 

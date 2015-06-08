@@ -19,6 +19,7 @@ Se necesitan los siguientes pre-requisitos para correr el aplicativo:
 >**Tkinter:**
 >sudo apt-get install python-tk
 
+---------------------
 
 ## Ejecución
 
@@ -31,9 +32,9 @@ python main.py
 ---------------------
 
 ## To do:
-- [x] Averiguar porque la imágen gira 90 grados
 - [ ] Pasar por parámetro ruta a la imágen a cargar
 - [ ] Crear tests
+- [x] Averiguar porque la imágen gira 90 grados
 - [x] Mostrar la diferencia de error entre original y algoritmos
 - [x] Desarrollar el algoritmo por transformada discreta del coseno (DCT)
 - [x] Terminar de configurar el entorno
