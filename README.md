@@ -31,9 +31,10 @@ python main.py
 ---------------------
 
 ## To do:
-- [ ] Averiguar porque la imágen gira 90 grados
+- [x] Averiguar porque la imágen gira 90 grados
 - [ ] Pasar por parámetro ruta a la imágen a cargar
 - [ ] Crear tests
+- [x] Mostrar la diferencia de error entre original y algoritmos
 - [x] Desarrollar el algoritmo por transformada discreta del coseno (DCT)
 - [x] Terminar de configurar el entorno
 - [x] Mejorar el formato del código

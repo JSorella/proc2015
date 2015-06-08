@@ -47,9 +47,9 @@ def generarMatriz(imagen):
 	x, y = imagen.shape
 	p = imagen
 	matriz = list()
-	for j in range(0,y):
+	for i in range(0,y):
 		fila = list()
-		for i in range(0,x):
+		for j in range(0,x):
 			fila.append(p[i,j])
 		matriz.append(fila)
 	n_array = np.array(matriz)

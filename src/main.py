@@ -41,6 +41,11 @@ def main():
   print "Diferencia entre Haar y original: ", f.errorCuadraticoMedio(haarMatrix,originalMatrix)
   print "Diferencia entre DCT y original: ", f.errorCuadraticoMedio(dctMatrix,originalMatrix)
 
+  # Creamos las matrices de error cuadratico punto a punto
+  errorFftMatrix = f.errorCuadraticoPuntoAPunto(fftMatrix,originalMatrix)
+  errorHaarMatrix = f.errorCuadraticoPuntoAPunto(haarMatrix,originalMatrix)
+  errorDctMatrix = f.errorCuadraticoPuntoAPunto(dctMatrix,originalMatrix)
+
   # Guardamos las imagenes comprimidas
   f.save('../media/fft.png', f.from_float(lossyFft))
   f.save('../media/haar.png', f.from_float(lossyHaar))
@@ -52,6 +57,10 @@ def main():
   f.save('../media/haar-coeff-recortado.png', f.bipolar(strongHaarCoeffs))
   f.save('../media/dct-coeff.png', f.bipolar(dctCoeffs))
   f.save('../media/dct-coeff-recortado.png', f.bipolar(strongDctCoeffs))
+  # Guardamos las imagenes que muestran la diferencia de error entre algoritmo y original
+  f.save('../media/fft-error.png', f.bipolar(errorFftMatrix))
+  f.save('../media/haar-error.png', f.bipolar(errorHaarMatrix))
+  f.save('../media/dct-error.png', f.bipolar(errorDctMatrix))
 
   # Ploteamos las imagenes resultantes en pantalla, junto a sus histogramas
   f.mostrarMatrizComoImagen(f.errorCuadraticoPuntoAPunto(f.to_float(fftMatrix), originalMatrix), 1)
