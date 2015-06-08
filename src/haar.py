@@ -1,14 +1,8 @@
 #!/usr/bin/env python
 """
-Lossy image compression using the Haar Wavelet Transform.
+Compresion Lossy de la imagen usando la transformada wavelet de Haar.
 """
-
-import Image
 import numpy as np
-import funcion
-import matplotlib.pyplot as plt
-
-# --- haar-related code:
 
 scale = np.sqrt(2.)
 

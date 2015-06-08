@@ -1,7 +1,10 @@
-from PIL import Image
+#!/usr/bin/env
+"""
+Funciones Helpers
+"""
 
+from PIL import Image
 import numpy as np
-from scipy import misc
 import matplotlib.pyplot as plt
 import os
 
@@ -52,14 +55,13 @@ def generarMatriz(imagen):
 	n_array = np.array(matriz)
 	return n_array
 
-def load(fn):
-  return np.asarray(Image.open(fn).convert(mode='L'))
-
-def save(fn, img):
-  assert img.dtype == np.uint8
-  Image.fromarray(img).save(fn)
-  print 'wrote', fn
-
+def keep_ratio(a, ratio):
+  """
+  Keep only the strongest values.
+  """
+  magnitude = sorted(np.abs(a.flatten()))
+  idx = int((len(magnitude) - 1) * (1. - ratio))
+  return np.where(np.abs(a) > magnitude[idx], a, 0)
 
 # ------ graphics-related code: ------
 
@@ -92,11 +94,11 @@ def bipolar(img):
   out[:,:,0] = np.where(img < 0, a + b * np.power(img / (img.min() - 0.001), c), 0)
   out[:,:,2] = np.where(img > 0, a + b * np.power(img / (img.max() + 0.001), c), 0)
   return from_float(out)
- 
-def keep_ratio(a, ratio):
-  """
-  Keep only the strongest values.
-  """
-  magnitude = sorted(np.abs(a.flatten()))
-  idx = int((len(magnitude) - 1) * (1. - ratio))
-  return np.where(np.abs(a) > magnitude[idx], a, 0)
+
+def load(fn):
+  return np.asarray(Image.open(fn).convert(mode='L'))
+
+def save(fn, img):
+  assert img.dtype == np.uint8
+  Image.fromarray(img).save(fn)
+  print 'wrote', fn
