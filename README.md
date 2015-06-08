@@ -9,28 +9,29 @@ Se necesitan los siguientes pre-requisitos para correr el aplicativo:
 1) Instalar python
 
 2) Instalar las siguientes dependencias:
->>**Scipy:**
->>sudo apt-get install python-scipy
+>**Scipy:**
+>sudo apt-get install python-scipy
 
->>**Matplotlib:**
->>sudo apt-get install python-matplotlib
+>**Matplotlib:**
+>sudo apt-get install python-matplotlib
 
->>**Tkinter:**
->>sudo apt-get install python-tk
+>**Tkinter:**
+>sudo apt-get install python-tk
 
-3) Ejecutar cualquier módulo bajo la directiva
+3) Ejecutar bajo la directiva:
 
 ```bash
-python algun_modulo.py
+python main.py
 ```
 
 ---------------------
 
-
 ## Todo:
-- [ ] Terminar de configurar el entorno
-- [ ] Mejorar el formato del código
-- [ ] Desarrollar el algoritmo por transformada discreta del coseno(DCT)
+- [ ] Desarrollar el algoritmo por transformada discreta del coseno (DCT)
+- [ ] Averiguar porque la imágen gira 90 grados
+- [ ] Pasar por parámetro ruta a la imágen a cargar
 - [ ] Crear tests
+- [x] Terminar de configurar el entorno
+- [x] Mejorar el formato del código
 - [x] Commitear los archivos de Carlos
 - [x] Crear repositorio
