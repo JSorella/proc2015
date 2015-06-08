@@ -13,6 +13,7 @@
 #   idct(a): Type-II inverse DCT of a
 #   dct2(y): 2D DCT of 2D real array y
 #   idct2(a): 2D inverse DCT real array a
+#
 #   dst(y): Type-I discrete sine transform (DST) of real data y
 #   idst(a): Type-I inverse DST of a
 #   dst2(y): 2D DST of 2D real array y

@@ -1,5 +1,6 @@
 # TP Compresión de Imágenes
 #### Procesamiento de Señales - 1c 2015 - UTN FRBA
+##### Grupo 2
 ---------------------
 
 ## Instalación
@@ -18,19 +19,22 @@ Se necesitan los siguientes pre-requisitos para correr el aplicativo:
 >**Tkinter:**
 >sudo apt-get install python-tk
 
-3) Ejecutar bajo la directiva:
 
-```bash
+## Ejecución
+
+Dentro de la carpeta "src", ejecutar bajo la directiva:
+
+>```bash
 python main.py
 ```
 
 ---------------------
 
-## Todo:
-- [ ] Desarrollar el algoritmo por transformada discreta del coseno (DCT)
+## To do:
 - [ ] Averiguar porque la imágen gira 90 grados
 - [ ] Pasar por parámetro ruta a la imágen a cargar
 - [ ] Crear tests
+- [x] Desarrollar el algoritmo por transformada discreta del coseno (DCT)
 - [x] Terminar de configurar el entorno
 - [x] Mejorar el formato del código
 - [x] Commitear los archivos de Carlos
