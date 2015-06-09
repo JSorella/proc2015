@@ -35,9 +35,9 @@ def main(argv):
   dctCoeffs = dcst.dct2(img)
 
   # Recortamos los valores despreciables
-  strongFftCoeffs =  f.keep_ratio(fftCoeffs, .5)
-  strongHaarCoeffs = f.keep_ratio(haarCoeffs, .5)
-  strongDctCoeffs = f.keep_ratio(dctCoeffs, .5)
+  strongFftCoeffs =  f.keep_ratio(fftCoeffs, .075)
+  strongHaarCoeffs = f.keep_ratio(haarCoeffs, .075)
+  strongDctCoeffs = f.keep_ratio(dctCoeffs, .075)
   
   # Antitransformamos y creamos las imagenes a partir de los coeficientes recortados
   lossyFft = np.fft.ifft2(strongFftCoeffs)

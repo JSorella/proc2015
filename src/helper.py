@@ -45,12 +45,11 @@ def espectroMatriz(matr, nroFigura):
 
 def generarMatriz(imagen):
   x, y = imagen.shape 
-  print str(x) + " " +str(y)
   p = imagen
   matriz = list()
-  for i in range(0,y-1):
+  for i in range(0,x):
     fila = list()
-    for j in range(0,x):
+    for j in range(0,y):
       fila.append(p[i,j])
     matriz.append(fila)
   n_array = np.array(matriz)
