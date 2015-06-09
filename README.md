@@ -34,8 +34,10 @@ python main.py -i <nombreArchivoAProcesar>
 ---------------------
 
 ## To do:
-- [ ] Verificar que es eso de que las imágenes que se cargan tienen que tener "valor par"
+- [ ] Mejorar Haar
+- [ ] Parametrizar el Ratio
 - [ ] Crear tests
+- [x] Verificar que es eso de que las imágenes que se cargan tienen que tener "valor par"
 - [x] Pasar por parámetro ruta a la imágen a cargar
 - [x] Averiguar porque la imágen gira 90 grados
 - [x] Mostrar la diferencia de error entre original y algoritmos
