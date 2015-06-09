@@ -28,6 +28,7 @@ Dentro de la carpeta "src", ejecutar bajo la directiva:
 >```bash
 python main.py -i <nombreArchivoAProcesar>
 ```
+
 ... Si no se adjunta ningún argumento, por defecto procesa la imágen media/lena.png
 
 ---------------------
