@@ -16,18 +16,18 @@ def main(argv):
 
   # Verificamos que se esta pasando un nombre de archivo por argumento
   try:
-    opts, args = getopt.getopt(argv,"hi:r:o",["ifile=","ratio="])
+    opts, args = getopt.getopt(argv,"oi:r:h",["file=","ratio=","help"])
   except getopt.GetoptError:
     print 'main.py -i <inputfile> -r <ratio>'
     sys.exit(2)
   for opt, arg in opts:
-    if opt == '-h':
-      print 'test.py -i <inputfile> -r <ratio>'
+    if opt in ('-h', '--help'):
+      print 'main.py -i <inputfile> -r <ratio>'
       sys.exit()
-    elif opt in ("-i", "--ifile"):
+    elif opt in ("-i", "--file"):
       fileName = arg
     elif opt in ("-r", "--ratio"):
-      ratio = arg
+      ratio = float(arg)
 
   # Cargamos la imagen a procesar
   img = f.to_float(f.load(fileName))
@@ -38,9 +38,9 @@ def main(argv):
   dctCoeffs = dcst.dct2(img)
 
   # Recortamos los valores despreciables
-  strongFftCoeffs =  f.keep_ratio(fftCoeffs, .075)
-  strongHaarCoeffs = f.keep_ratio(haarCoeffs, .075)
-  strongDctCoeffs = f.keep_ratio(dctCoeffs, .075)
+  strongFftCoeffs =  f.keep_ratio(fftCoeffs,ratio)
+  strongHaarCoeffs = f.keep_ratio(haarCoeffs,ratio)
+  strongDctCoeffs = f.keep_ratio(dctCoeffs,ratio)
   
   # Antitransformamos y creamos las imagenes a partir de los coeficientes recortados
   lossyFft = np.fft.ifft2(strongFftCoeffs)
