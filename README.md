@@ -26,15 +26,22 @@ Se necesitan los siguientes pre-requisitos para correr el aplicativo:
 Dentro de la carpeta "src", ejecutar bajo la directiva:
 
 >```bash
-python main.py -i <nombreArchivoAProcesar>
+python main.py -i <nombreArchivoAProcesar> -r <ratio>
 ```
 
-... Si no se adjunta ningún argumento, por defecto procesa la imágen media/lena.png
+... Si no se adjunta ningún argumento, por defecto procesa la imágen media/lena.png.
+... y si no se agrega ningún valor de ratio, por defecto toma el valor 0.1
 
+Para mostrar la ayuda, usar el comando:
+
+>```bash
+python main.py -h
+```
 ---------------------
 
 ## To do:
 - [ ] Mejorar Haar
+- [ ] Agregar una función para zippear las imágenes
 - [ ] Crear tests
 - [x] Parametrizar el Ratio
 - [x] Verificar que es eso de que las imágenes que se cargan tienen que tener "valor par"
