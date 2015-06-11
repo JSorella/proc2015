@@ -7,9 +7,7 @@ from PIL import Image
 import numpy as np
 import matplotlib.pyplot as plt
 import os
-
-def abrirImagen(ruta):
-  return np.asarray(Image.open(ruta).convert(mode='L'))
+import zlib
 
 def filtroGrisesPromedio(imagen):
   x, y = imagen.shape
@@ -95,8 +93,8 @@ def bipolar(img):
   out[:,:,2] = np.where(img > 0, a + b * np.power(img / (img.max() + 0.001), c), 0)
   return from_float(out)
 
-def load(fn):
-  return np.asarray(Image.open(fn).convert(mode='L'))
+def load(ruta):
+  return np.asarray(Image.open(ruta).convert(mode='L'))
 
 def save(fn, img):
   assert img.dtype == np.uint8

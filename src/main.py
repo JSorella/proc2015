@@ -8,6 +8,7 @@ import haar
 import dcst
 import matplotlib.pyplot as plt
 import sys, getopt
+import gzip
 
 def main(argv):
   # Archivo por defecto (si no hay argumentos)
@@ -54,15 +55,16 @@ def main(argv):
   dctMatrix = f.generarMatriz(lossyDct)
 
   # Calculamos e informamos los errores cuatraticos medios
-  print "ERROR CUADRATICO MEDIO"
-  print "Diferencia entre FFT y original: ", f.errorCuadraticoMedio(fftMatrix,originalMatrix)
+  print "\nERROR CUADRATICO MEDIO"
+  print "Diferencia entre FFT y original:  ", f.to_float(f.errorCuadraticoMedio(fftMatrix,originalMatrix))
   print "Diferencia entre Haar y original: ", f.errorCuadraticoMedio(haarMatrix,originalMatrix)
-  print "Diferencia entre DCT y original: ", f.errorCuadraticoMedio(dctMatrix,originalMatrix)
+  print "Diferencia entre DCT y original:  ", f.errorCuadraticoMedio(dctMatrix,originalMatrix)
+  print "\n"
 
   # Creamos las matrices de error cuadratico punto a punto
   errorFftMatrix = f.errorCuadraticoPuntoAPunto(fftMatrix,originalMatrix)
   errorHaarMatrix = f.errorCuadraticoPuntoAPunto(haarMatrix,originalMatrix)
-  errorDctMatrix = f.errorCuadraticoPuntoAPunto(dctMatrix,originalMatrix)
+  errorDctMatrix = f.errorCuadraticoPuntoAPunto(dctMatrix,originalMatrix)  
 
   # Guardamos las imagenes comprimidas
   f.save('../media/compressed-fft.png', f.from_float(lossyFft))
@@ -79,6 +81,8 @@ def main(argv):
   f.save('../media/error-fft.png', f.bipolar(errorFftMatrix))
   f.save('../media/error-haar.png', f.bipolar(errorHaarMatrix))
   f.save('../media/error-dct.png', f.bipolar(errorDctMatrix))
+
+  
 
   # Ploteamos las imagenes resultantes en pantalla, junto a sus histogramas
   f.mostrarMatrizComoImagen(f.errorCuadraticoPuntoAPunto(f.to_float(fftMatrix), originalMatrix), 1)
