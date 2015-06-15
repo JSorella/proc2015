@@ -14,6 +14,7 @@ def main(argv):
   # Archivo por defecto (si no hay argumentos)
   fileName = '../media/lena.png'
   ratio = .1
+  rar = '.1'
 
   # Verificamos que se esta pasando un nombre de archivo por argumento
   try:
@@ -29,6 +30,7 @@ def main(argv):
       fileName = arg
     elif opt in ("-r", "--ratio"):
       ratio = float(arg)
+      rar = arg
 
   # Cargamos la imagen a procesar
   img = f.to_float(f.load(fileName))
@@ -65,34 +67,48 @@ def main(argv):
   errorFftMatrix = f.errorCuadraticoPuntoAPunto(fftMatrix,originalMatrix)
   errorHaarMatrix = f.errorCuadraticoPuntoAPunto(haarMatrix,originalMatrix)
   errorDctMatrix = f.errorCuadraticoPuntoAPunto(dctMatrix,originalMatrix)  
-
+  print '../media/compressed-fft_%s.png' % rar
   # Guardamos las imagenes comprimidas
-  f.save('../media/compressed-fft.png', f.from_float(lossyFft))
-  f.save('../media/compressed-haar.png', f.from_float(lossyHaar))
-  f.save('../media/compressed-dct.png', f.from_float(lossyDct))
+  f.save('../media/compressed-fft_%s.png' % rar, f.from_float(lossyFft))
+  f.save('../media/compressed-haar_%s.png' % rar, f.from_float(lossyHaar))
+  f.save('../media/compressed-dct_%s.png' % rar, f.from_float(lossyDct))
   # Guardamos las imagenes con los coeficientes  
-  f.save('../media/coeff-fft.png', f.bipolar(fftCoeffs))
-  f.save('../media/coeff-fft-recortado.png', f.bipolar(strongFftCoeffs))
-  f.save('../media/coeff-haar.png', f.bipolar(haarCoeffs))
-  f.save('../media/coeff-haar-recortado.png', f.bipolar(strongHaarCoeffs))
-  f.save('../media/coeff-dct.png', f.bipolar(dctCoeffs))
-  f.save('../media/coeff-dct-recortado.png', f.bipolar(strongDctCoeffs))
+  f.save('../media/coeff-fft_%s.png' % rar, f.bipolar(fftCoeffs))
+  f.save('../media/coeff-fft-recortado_%s.png' % rar, f.bipolar(strongFftCoeffs))
+  f.save('../media/coeff-haar_%s.png' % rar, f.bipolar(haarCoeffs))
+  f.save('../media/coeff-haar-recortado_%s.png' % rar, f.bipolar(strongHaarCoeffs))
+  f.save('../media/coeff-dct_%s.png' % rar, f.bipolar(dctCoeffs))
+  f.save('../media/coeff-dct-recortado_%s.png' % rar, f.bipolar(strongDctCoeffs))
   # Guardamos las imagenes que muestran la diferencia de error entre algoritmo y original
-  f.save('../media/error-fft.png', f.bipolar(errorFftMatrix))
-  f.save('../media/error-haar.png', f.bipolar(errorHaarMatrix))
-  f.save('../media/error-dct.png', f.bipolar(errorDctMatrix))
+  f.save('../media/error-fft_%s.png' % rar, f.bipolar(errorFftMatrix))
+  f.save('../media/error-haar_%s.png' % rar, f.bipolar(errorHaarMatrix))
+  f.save('../media/error-dct_%s.png' % rar, f.bipolar(errorDctMatrix))
 
-  
+  # Guardamos los coeficientes comprimidos
+  fin = open('haarCoeffs_%s.raw' % rar, 'w+')
+  fin.write(haarCoeffs)
+  fin = open('strongHaarCoeffs_%s.raw' % rar, 'w+')
+  fin.write(strongHaarCoeffs)
+  fin = open('strongFftCoeffs_%s.raw' % rar, 'w+')
+  fin.write(strongFftCoeffs)
+  fin = open('fftCoeffs_%s.raw' % rar, 'w+')
+  fin.write(fftCoeffs)
+  fin = open('dctCoeffs_%s.raw' % rar, 'w+')
+  fin.write(dctCoeffs)
+  fin = open('strongDctCoeffs_%s.raw' % rar, 'w+')
+  fin.write(strongDctCoeffs)
+  fin.close()
 
-  # Ploteamos las imagenes resultantes en pantalla, junto a sus histogramas
-  f.mostrarMatrizComoImagen(f.errorCuadraticoPuntoAPunto(f.to_float(fftMatrix), originalMatrix), 1)
-  f.mostrarMatrizComoImagen(errorHaarMatrix, 2)
-  f.mostrarMatrizComoImagen(errorDctMatrix, 3)
-  f.espectroMatriz(errorFftMatrix, 4)
-  f.espectroMatriz(errorHaarMatrix, 5)
-  f.espectroMatriz(errorDctMatrix, 6)
+  # Ploteamos las imagenes resultantes en pantalla
+  #f.mostrarMatrizComoImagen(f.errorCuadraticoPuntoAPunto(f.to_float(fftMatrix), originalMatrix), 1)
+  #f.mostrarMatrizComoImagen(errorHaarMatrix, 2)
+  #f.mostrarMatrizComoImagen(errorDctMatrix, 3)
+  # Ploteamos los histogramas de las imagenes
+  #f.espectroMatriz(errorFftMatrix, 4)
+  #f.espectroMatriz(errorHaarMatrix, 5)
+  #f.espectroMatriz(errorDctMatrix, 6)
 
-  plt.show()
+  #plt.show()
 
 if __name__ == '__main__':
   main(sys.argv[1:])
